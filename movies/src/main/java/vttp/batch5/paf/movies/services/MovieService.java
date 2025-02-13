@@ -125,10 +125,10 @@ public class MovieService {
       document.stream()
         .map(a-> {
             JsonObject object = Json.createObjectBuilder()
-              .add("Director", a.getString("director"))
-              .add("titles",a.getString("title"))
-              .add("revenue",a.getInteger("revenue"))
-              .add("budget",a.getInteger("budget"))
+              .add("director_name", a.getString("director"))
+              .add("title",a.getString("title"))
+              .add("total_revenue",a.getInteger("revenue"))
+              .add("total_budget",a.getInteger("budget"))
               .build();
 
             return object;

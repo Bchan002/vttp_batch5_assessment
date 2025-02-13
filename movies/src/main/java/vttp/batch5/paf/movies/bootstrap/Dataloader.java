@@ -32,17 +32,19 @@ public class Dataloader implements CommandLineRunner {
   @Override
   public void run(String ... main){
 
-      InputStream inputStream = getClass().getClassLoader().getResourceAsStream("data/movies_post_2010.zip");
-      String fileZip = "/Users/benjaminchan/Desktop/paf_b5_assessment_template/data/movies_post_2010.zip";
-     try{
-
+      
     
+      // String fileZip = "data/movies_post_2010.zip";
+     try{
+      
+      InputStream theFile = new FileInputStream("data/movies_post_2010.zip");
 
       // // Handle null case if the file doesn't exist
       // if (inputStream == null) {
       //     throw new FileNotFoundException("Resource not found: static/products.json");
       // }
-      ZipInputStream zipIn = new ZipInputStream(new FileInputStream(fileZip));
+      ZipInputStream zipIn = new ZipInputStream(theFile);
+    
       ZipEntry entry = zipIn.getNextEntry();
 
       List<Document> docList = new ArrayList<>();
@@ -119,6 +121,7 @@ public class Dataloader implements CommandLineRunner {
     }
     } catch (Exception e){
           e.printStackTrace();
+          return;
     }
   }
  
